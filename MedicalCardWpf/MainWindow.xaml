@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalCardWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Bisque">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="PatientsRecords" Grid.Row="1" Margin="100,0,100,25" Content="Записи пациентов" Click="PatientsRecords_Click"/>
+        <Button x:Name="NewRecord" Grid.Row="2" Margin="100,0,100,25" Content="Новая запись" Click="NewRecord_Click"/>
+        <Button x:Name="DoctorEnter" Grid.Row="3" Margin="100,0,100,25" Content="Вход для врачей" Click="DoctorEnter_Click"/>
     </Grid>
 </Window>
