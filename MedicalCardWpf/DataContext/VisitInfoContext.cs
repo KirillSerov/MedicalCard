@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicalCardWpf.Services
+namespace MedicalCardWpf.DataContext
 {
-    internal class PatientInfoService
+    public class VisitInfoContext
     {
+        public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
         public VisitToDoctor VisitToDoctor { get; set; }
     }

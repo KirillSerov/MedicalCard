@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicalCardWpf.Context
+namespace MedicalCardWpf.Database
 {
-    internal class MedicalCardDB : DbContext
+    public class MedicalCardDB : DbContext
     {
         public DbSet<Doctor> Doctors { get; set; } = null!;
         public DbSet<Patient> Patients { get; set; } = null!;

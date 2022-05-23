@@ -1,4 +1,5 @@
-﻿using MedicalCardWpf.Context;
+﻿using MedicalCardWpf.Database;
+using MedicalCardWpf.DataContext;
 using MedicalCardWpf.Models;
 using MedicalCardWpf.Services;
 using System;
@@ -22,39 +23,37 @@ namespace MedicalCardWpf.Windows.Menu1
     /// </summary>
     public partial class PatientInfo : Window
     {
-        private MedicalCardDB _db;
         private Patient _patient;
-        private List<PatientInfoService> patientInfoService;
         public PatientInfo(Patient patient)
         {
             InitializeComponent();
             _patient = patient;
-            patientInfoService = new List<PatientInfoService>();
-            this.DataContext = _patient;
+            DataContext = _patient;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using(_db = new MedicalCardDB())
-            {
-                var visits = _db.VisitsToDoctors.Where(v => v.PatientId == _patient.Id).ToList();
-                var doctors = _db.Doctors.ToList();
-                foreach (var item in visits)
-                {
-                    patientInfoService.Add(new PatientInfoService { VisitToDoctor = item, Doctor = doctors.FirstOrDefault(d => d.Id == item.DoctorId) });
-                }
+            //using(_db = new MedicalCardDB())
+            //{
+            //    var visits = _db.VisitsToDoctors.Where(v => v.PatientId == _patient.Id).ToList();
+            //    var doctors = _db.Doctors.ToList();
+            //    foreach (var item in visits)
+            //    {
+            //        patientInfoService.Add(new PatientInfoService { VisitToDoctor = item, Doctor = doctors.FirstOrDefault(d => d.Id == item.DoctorId) });
+            //    }
 
-                PatientInfoGrid.Items.Clear();
-                PatientInfoGrid.ItemsSource = patientInfoService;
-            }
+            //    PatientInfoGrid.Items.Clear();
+            //    PatientInfoGrid.ItemsSource = patientInfoService;
+            //}
+            PatientInfoGrid.ItemsSource = PatientInfoRepository.Get(_patient);
         }
 
         private void PatientInfoGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if(sender is DataGrid grid && grid.SelectedIndex >= 0)
+            if (sender is DataGrid grid && grid.SelectedIndex >= 0)
             {
-                if(grid.SelectedItem is PatientInfoService patientInfoService)
-                MessageBox.Show(patientInfoService.VisitToDoctor.Result);
+                if (grid.SelectedItem is VisitInfoContext patientInfoService)
+                    MessageBox.Show(patientInfoService.VisitToDoctor.Result);
             }
         }
     }

@@ -22,13 +22,20 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="ФИО:" FontSize="20" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Firstname}" FontSize="20" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" VerticalAlignment="Center">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Firstname"/>
+                        <Binding Path="Surname"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Телефон:" FontSize="20" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Phone}" FontSize="20" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Адрес:" FontSize="20" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Adress}" FontSize="20" VerticalAlignment="Center"/>
         </Grid>
-        <DataGrid Grid.Row="1" Margin="10" x:Name="PatientInfoGrid" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="PatientInfoGrid_MouseDoubleClick">
+        <DataGrid x:Name="PatientInfoGrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="PatientInfoGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата приема" Binding="{Binding Path=VisitToDoctor.VisitDate, StringFormat={}{0:dd.MM.yyyy г.}}"/>
                 <DataGridTextColumn Header="Лечащий врач" Binding="{Binding Path=Doctor.Position}"/>
