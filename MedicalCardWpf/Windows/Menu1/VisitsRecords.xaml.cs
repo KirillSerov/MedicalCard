@@ -28,9 +28,10 @@ namespace MedicalCardWpf.Windows.Menu1
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            VisitsRecordsGrid.ItemsSource = VisitsRepository.Get();
+            VisitsRecordsGrid.ItemsSource = await Task.Run(()=>
+            VisitsRepository.Get());
         }
 
         private void PatientsRecordsGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -50,6 +51,17 @@ namespace MedicalCardWpf.Windows.Menu1
             TextBox textBox = sender as TextBox;
             if (textBox != null)
                 VisitsRecordsGrid.ItemsSource = VisitsRepository.Get(textBox.Text);
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
         }
     }
 }

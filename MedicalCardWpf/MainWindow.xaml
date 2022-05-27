@@ -5,16 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalCardWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Bisque">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Title="Медицинская база" Height="450" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="PatientsRecords" Grid.Row="1" Margin="100,0,100,25" Content="Записи пациентов" Click="PatientsRecords_Click" FontSize="20"/>
-        <Button x:Name="NewRecord" Grid.Row="2" Margin="100,0,100,25" Content="Новая запись" Click="NewRecord_Click" FontSize="20"/>
-        <Button x:Name="DoctorEnter" Grid.Row="3" Margin="100,0,100,25" Content="Вход для врачей" Click="DoctorEnter_Click" FontSize="20"/>
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.Row="0" Padding="25" materialDesign:ShadowAssist.ShadowDepth="Depth2" Margin="10">
+            <TextBlock Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Text="Медицинска база" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </materialDesign:ColorZone>
+        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="PatientsRecords" Grid.Row="1" Margin="150,0,150,0" Content="Записи пациентов" Click="PatientsRecords_Click"/>
+        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="NewRecord" Grid.Row="2" Margin="150,-20,150,0" Content="Новая запись" Click="NewRecord_Click"/>
+        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="DoctorEnter" Grid.Row="3" Margin="150,-40,150,0" Content="Вход для врачей" Click="DoctorEnter_Click"/>
+        <Button x:Name="CloseButton" DockPanel.Dock="Bottom" Margin="150,0,150,20" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" FontSize="14"
+                    Click="CloseButton_Click" Grid.Row="4"/>
     </Grid>
 </Window>

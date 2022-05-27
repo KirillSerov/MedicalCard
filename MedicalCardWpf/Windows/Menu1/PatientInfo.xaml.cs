@@ -48,13 +48,19 @@ namespace MedicalCardWpf.Windows.Menu1
             PatientInfoGrid.ItemsSource = PatientInfoRepository.Get(_patient);
         }
 
-        private void PatientInfoGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is DataGrid grid && grid.SelectedIndex >= 0)
-            {
-                if (grid.SelectedItem is VisitInfoContext patientInfoService)
-                    MessageBox.Show(patientInfoService.VisitToDoctor.Result);
-            }
+            Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+
     }
 }
