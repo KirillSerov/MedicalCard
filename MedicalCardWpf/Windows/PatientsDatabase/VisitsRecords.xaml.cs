@@ -1,7 +1,7 @@
 ﻿using MedicalCardWpf.Database;
-using MedicalCardWpf.DataContext;
 using MedicalCardWpf.Models;
 using MedicalCardWpf.Services;
+using MedicalCardWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +41,8 @@ namespace MedicalCardWpf.Windows.Menu1
                 var tmp = grid.SelectedValue as VisitInfoContext;
                 if (tmp == null)
                     return;
-                PatientInfo patientInfo = new PatientInfo(tmp.Patient);
-                patientInfo.ShowDialog();
+                //PatientInfo patientInfo = new PatientInfo(tmp.Patient);
+               // patientInfo.ShowDialog();
             }
         }
 

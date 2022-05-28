@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicalCardWpf.DataContext
+namespace MedicalCardWpf.ViewModels
 {
-    public class VisitInfoContext
+    public class DoctorInfoContext
     {
         public Patient Patient { get; set; }
-        public Doctor Doctor { get; set; }
         public VisitToDoctor VisitToDoctor { get; set; }
     }
 }

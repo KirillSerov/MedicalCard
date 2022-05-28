@@ -1,5 +1,4 @@
 ﻿using MedicalCardWpf.Database;
-using MedicalCardWpf.DataContext;
 using MedicalCardWpf.Models;
 using MedicalCardWpf.Services;
 using System;
@@ -16,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MedicalCardWpf.Windows.Menu1
+namespace MedicalCardWpf.Windows.PatientsDatabase
 {
     /// <summary>
     /// Interaction logic for PatientInfo.xaml

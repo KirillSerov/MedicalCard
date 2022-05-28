@@ -1,5 +1,5 @@
 ﻿using MedicalCardWpf.Database;
-using MedicalCardWpf.DataContext;
+using MedicalCardWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using MedicalCardWpf.Database;
-using MedicalCardWpf.DataContext;
+using MedicalCardWpf.ViewModels;
 using MedicalCardWpf.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,8 +24,6 @@ namespace MedicalCardWpf.Services
                 {
                     patientInfoService.Add(new PatientInfoContext { VisitToDoctor = item, Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId) });
                 }
-
-
             }
             return patientInfoService;
         }

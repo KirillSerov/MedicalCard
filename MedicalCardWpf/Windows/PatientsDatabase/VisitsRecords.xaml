@@ -27,7 +27,7 @@
                        HorizontalAlignment="Center"/>
         </materialDesign:ColorZone>
         <TextBox x:Name="PatientFilter" Style="{DynamicResource MaterialDesignFilledTextBox}" VerticalAlignment="Center" TextChanged="PatientFilter_TextChanged"
-                 Grid.Row="1" materialDesign:HintAssist.Hint="Фильтр" Width="200" Margin="10" HorizontalAlignment="Left" MaxLength="20"/>
+                 Grid.Row="1" materialDesign:HintAssist.Hint="Фильтр пациентов" Width="200" Margin="10" HorizontalAlignment="Left" MaxLength="20"/>
         <DataGrid Style="{DynamicResource MaterialDesignDataGrid}" x:Name="VisitsRecordsGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10"
                   CanUserDeleteRows="False" MouseDoubleClick="PatientsRecordsGrid_MouseDoubleClick" Grid.Row="2" ColumnHeaderStyle="{DynamicResource MaterialDesignRaisedButton}">
             <DataGrid.Columns>
