@@ -29,7 +29,7 @@ namespace MedicalCardWpf.Database
                         Birthday = new DateTime(1986, 8, 10),
                         Phone = "+123123",
                         Adress = "Russia, 5",
-                        Photo = File.ReadAllBytes(@"D:\Programming\C#\Step\MedicalCard\MedicalCardWpf\PatientsPhoto\1.jpg")
+                        Photo = File.ReadAllBytes(@"..\..\..\PatientsPhoto\1.jpg")
                     };
                     Patient p2 = new Patient
                     {
@@ -38,7 +38,7 @@ namespace MedicalCardWpf.Database
                         Birthday = new DateTime(1988, 8, 12),
                         Phone = "+555555",
                         Adress = "Russia, 7",
-                        Photo = File.ReadAllBytes(@"D:\Programming\C#\Step\MedicalCard\MedicalCardWpf\PatientsPhoto\2.jpg")
+                        Photo = File.ReadAllBytes(@"..\..\..\PatientsPhoto\2.jpg")
                     };
                     db.Patients.Add(p1);
                     db.Patients.Add(p2);
