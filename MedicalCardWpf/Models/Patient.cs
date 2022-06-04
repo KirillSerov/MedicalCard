@@ -14,6 +14,7 @@ namespace MedicalCardWpf.Models
         public DateTime? Birthday { get; set; }
         public string? Phone { get; set; }
         public string? Adress { get; set; }
+        public byte[] Photo { get; set; }
 
         public Patient()
         {

@@ -20,12 +20,12 @@ namespace MedicalCardWpf.Models
         public Patient Patient { get; set; }
         public VisitToDoctor() { }
 
-        public VisitToDoctor(Doctor doctor, Patient patient, DateTime visitDate, string problem)
-        {
-            VisitDate = visitDate;
-            Doctor = doctor;
-            Patient = patient;
-            Problem = problem;
-        }
+        //public VisitToDoctor(Doctor doctor, Patient patient, DateTime visitDate, string problem)
+        //{
+        //    VisitDate = visitDate;
+        //    Doctor = doctor;
+        //    Patient = patient;
+        //    Problem = problem;
+        //}
     }
 }

@@ -20,18 +20,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.Row="0" Padding="25" materialDesign:ShadowAssist.ShadowDepth="Depth2" Margin="10">
             <TextBlock Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Text="Медицинска база" HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
         </materialDesign:ColorZone>
-        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="PatientsRecords" Grid.Row="1" Margin="150,0,150,0" Content="Записи пациентов" Click="PatientsRecords_Click"/>
-        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="NewRecord" Grid.Row="2" Margin="150,-20,150,0" Content="Новая запись" Click="NewRecord_Click"/>
-        <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="DoctorEnter" Grid.Row="3" Margin="150,-40,150,0" Content="Вход для врачей" Click="DoctorEnter_Click"/>
-        <Button x:Name="CloseButton" DockPanel.Dock="Bottom" Margin="150,0,150,20" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" FontSize="14"
-                    Click="CloseButton_Click" Grid.Row="4"/>
+        <StackPanel Grid.Row="1">
+            <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="PatientDatabaseButton" Content="База пациентов" Click="PatientDatabaseButton_Click" Margin="10"/>
+            <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="NewPatientButton" Content="Новый пациент" Click="NewPatientButton_Click" Margin="10"/>
+            <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="DoctorEnterButton" Content="Вход для врачей" Click="DoctorEnterButton_Click" Margin="10"/>
+        </StackPanel>
+        <Button x:Name="CloseButton" Margin="10" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" FontSize="14"
+                    Click="CloseButton_Click" Grid.Row="5"/>
     </Grid>
 </Window>
