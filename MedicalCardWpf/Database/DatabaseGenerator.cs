@@ -14,7 +14,6 @@ namespace MedicalCardWpf.Database
         {
             using (MedicalCardDB db = new MedicalCardDB())
             {
-                db.Database.EnsureDeleted();
                 if (db.Database.EnsureCreated())
                 {
                     Doctor d1 = new Doctor { Position = "Педиатр" };
