@@ -17,5 +17,9 @@ namespace MedicalCardWpf.Models
         }
 
         public List<VisitToDoctor> VisitsToDoctors { get; set; }
+        public override string ToString()
+        {
+            return Position;
+        }
     }
 }

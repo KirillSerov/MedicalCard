@@ -1,0 +1,87 @@
+﻿<Window x:Class="MedicalCardWpf.Windows.NewPatientMenu.NewPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalCardWpf.Windows.NewPatientMenu"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Loaded="Window_Loaded"
+        Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone Padding="25" Margin="10" Mode="PrimaryMid" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <TextBlock Text="Новый пациент" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" HorizontalAlignment="Center"/>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Имя:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Фамилия:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="1"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Дата рождения:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="2"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Адрес:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="3"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Телефон:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="4"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Фото:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="5"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Жалобы:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="6"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Врачи:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" Grid.Row="7"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Дата посещения:" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Right" 
+                       Grid.Row="8" VerticalAlignment="Center"/>
+
+            <TextBox x:Name="FirstnameTextBox" Grid.Column="1" VerticalAlignment="Center" Margin="20,0,0,0" MaxLength="50"/>
+            <TextBox x:Name="SurnameTextBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="20,0,0,0" MaxLength="50"/>
+            <DatePicker x:Name="DateBirthPicker" Grid.Column="1" Grid.Row="2" Margin="20,0,0,0" Width="150" HorizontalAlignment="Left"/>
+            <TextBox x:Name="AddressTextBox" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="20,0,0,0" MaxLength="50"/>
+            <TextBox x:Name="PhoneTextBox" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="20,0,0,0" MaxLength="11"
+                     PreviewTextInput="PhoneTextBox_PreviewTextInput"/>
+            <Button x:Name="SelectPhoto" Content="Выбрать фото" Grid.Column="1" Grid.Row="5" Height="25" Width="150" HorizontalAlignment="Left"
+                    Margin="20,0,0,0" Click="SelectPhoto_Click"/>
+            <TextBox x:Name="ProblemTextBox" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="20,0,0,0" MaxLines="5"
+                     TextWrapping="WrapWithOverflow"/>
+            <ListBox x:Name="DoctorsList" Grid.Column="1" Grid.Row="7" Style="{DynamicResource MaterialDesignListBox}" Margin="20,0,0,0"/>
+            <DatePicker x:Name="SelectVisitDate" Grid.Column="1" Grid.Row="8" Margin="20,0,0,0" Width="150" HorizontalAlignment="Left"/>
+
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="SaveNewPatient" Margin="20" Content="Сохранить" Width="110" Click="SaveNewPatient_Click"/>
+            <Button x:Name="Cancel" Margin="20" Content="Отмена" Width="110" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

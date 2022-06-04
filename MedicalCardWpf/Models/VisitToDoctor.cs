@@ -10,6 +10,7 @@ namespace MedicalCardWpf.Models
     {
         public int Id { get; set; }
         public DateTime? VisitDate { get; set; }
+        public string? Problem { get; set; }
         public string? Result { get; set; }
 
         public int DoctorId { get; set; }
@@ -19,11 +20,12 @@ namespace MedicalCardWpf.Models
         public Patient Patient { get; set; }
         public VisitToDoctor() { }
 
-        public VisitToDoctor(Doctor doctor, Patient patient, DateTime visitDate)
-        {
-            VisitDate = visitDate;
-            Doctor = doctor;
-            Patient = patient;
-        }
+        //public VisitToDoctor(Doctor doctor, Patient patient, DateTime visitDate, string problem)
+        //{
+        //    VisitDate = visitDate;
+        //    Doctor = doctor;
+        //    Patient = patient;
+        //    Problem = problem;
+        //}
     }
 }
