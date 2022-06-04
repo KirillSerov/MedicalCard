@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MedicalCardWpf.Windows.Menu1"
+        xmlns:local="clr-namespace:MedicalCardWpf.Windows.PatientsDatabase"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -26,7 +26,7 @@
             <TextBlock Text="Информация о пациенте" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" HorizontalAlignment="Center"/>
         </materialDesign:ColorZone>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
-            <Image Width="100" Height="100" Margin="20,10,100,10" Source="{Binding Path=Photo"/>
+            <Image x:Name="PatientPhoto" Width="100" Height="100" Margin="20,10,100,10" Source="{Binding Path=Photo}" ToolTip="{Binding Path=Photo}"/>
             <Grid Width="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition/>

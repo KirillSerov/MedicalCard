@@ -22,7 +22,11 @@ namespace MedicalCardWpf.Services
             {
                 foreach (var item in db.VisitsToDoctors.ToList().Where(v => v.PatientId == patient.Id))
                 {
-                    patientInfoService.Add(new PatientInfoContext { VisitToDoctor = item, Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId) });
+                    patientInfoService.Add(new PatientInfoContext
+                    {
+                        VisitToDoctor = item,
+                        Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId)
+                    });
                 }
             }
             return patientInfoService;

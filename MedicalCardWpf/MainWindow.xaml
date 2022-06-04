@@ -29,7 +29,6 @@
         <StackPanel Grid.Row="1">
             <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="PatientDatabaseButton" Content="База пациентов" Click="PatientDatabaseButton_Click" Margin="10"/>
             <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="NewPatientButton" Content="Новый пациент" Click="NewPatientButton_Click" Margin="10"/>
-            <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="DoctorDatabaseButton" Content="База данных врачей" Click="DoctorDatabaseButton_Click" Margin="10"/>
             <Button Style="{DynamicResource MaterialDesignRaisedButton}" x:Name="DoctorEnterButton" Content="Вход для врачей" Click="DoctorEnterButton_Click" Margin="10"/>
         </StackPanel>
         <Button x:Name="CloseButton" Margin="10" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" FontSize="14"

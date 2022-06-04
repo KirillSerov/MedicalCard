@@ -3,6 +3,7 @@ using MedicalCardWpf.Models;
 using MedicalCardWpf.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,26 +29,25 @@ namespace MedicalCardWpf.Windows.PatientsDatabase
             InitializeComponent();
             _patient = patient;
             DataContext = _patient;
+            PatientPhoto.Source = Converter(_patient.Photo);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //using(_db = new MedicalCardDB())
-            //{
-            //    var visits = _db.VisitsToDoctors.Where(v => v.PatientId == _patient.Id).ToList();
-            //    var doctors = _db.Doctors.ToList();
-            //    foreach (var item in visits)
-            //    {
-            //        patientInfoService.Add(new PatientInfoService { VisitToDoctor = item, Doctor = doctors.FirstOrDefault(d => d.Id == item.DoctorId) });
-            //    }
-
-            //    PatientInfoGrid.Items.Clear();
-            //    PatientInfoGrid.ItemsSource = patientInfoService;
-            //}
-            PatientInfoGrid.ItemsSource = PatientInfoRepository.Get(_patient);
+            PatientInfoGrid.ItemsSource = await Task.Run(()=>PatientInfoRepository.Get(_patient));
         }
 
-
+        private BitmapImage Converter(byte[] photo)
+        {
+            BitmapImage image = new BitmapImage();
+            MemoryStream ms = new MemoryStream();
+            ms.Write(photo, 0, photo.Length);
+            image.BeginInit();
+            ms.Seek(0, SeekOrigin.Begin);
+            image.StreamSource = ms;
+            image.EndInit();
+            return image;
+        }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {

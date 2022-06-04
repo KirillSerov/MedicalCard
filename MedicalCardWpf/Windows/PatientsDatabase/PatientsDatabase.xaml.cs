@@ -24,7 +24,6 @@ namespace MedicalCardWpf.Windows.PatientsDatabase
         public PatientsDatabase()
         {
             InitializeComponent();
-
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
@@ -54,7 +53,6 @@ namespace MedicalCardWpf.Windows.PatientsDatabase
 
         private void PatientsDatabaseGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
             if (sender is DataGrid grid && grid.SelectedIndex >= 0)
             {
                 if (grid.SelectedItem is Patient patient)

@@ -37,7 +37,7 @@
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Path=Adress}" Width="*" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="CloseButton" Margin="10" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" FontSize="14"
+        <Button x:Name="CloseButton" Margin="150,0,150,10" Content="X" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
                     Click="CloseButton_Click" Grid.Row="3"/>
     </Grid>
 </Window>

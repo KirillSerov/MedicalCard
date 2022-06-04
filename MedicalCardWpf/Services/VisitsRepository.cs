@@ -10,32 +10,40 @@ namespace MedicalCardWpf.Services
 {
     public static class VisitsRepository
     {
+
         public static IEnumerable<VisitInfoContext> Get()
         {
+            List<VisitInfoContext> visitsInfoService = new List<VisitInfoContext>();
             using (MedicalCardDB db = new MedicalCardDB())
             {
-                List<VisitInfoContext> vsitsInfoService = new List<VisitInfoContext>();
                 foreach (var item in db.VisitsToDoctors.ToList())
                 {
-                    vsitsInfoService.Add(new VisitInfoContext { VisitToDoctor = item, Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId), Patient = db.Patients.FirstOrDefault(p => p.Id == item.PatientId) });
+                    visitsInfoService.Add(new VisitInfoContext { VisitToDoctor = item, Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId), Patient = db.Patients.FirstOrDefault(p => p.Id == item.PatientId) });
                 }
-                return vsitsInfoService;
             }
+            return visitsInfoService;
         }
 
         public static IEnumerable<VisitInfoContext> Get(string name)
         {
+            List<VisitInfoContext> patientInfoService = new List<VisitInfoContext>();
             name = name.ToLower();
             using (MedicalCardDB db = new MedicalCardDB())
             {
                 var patientsFiltered = db.Patients.Where(p => p.Firstname.ToLower().Contains(name) || p.Surname.ToLower().Contains(name)).Select(p => p.Id).ToList();
-                List<VisitInfoContext> patientInfoService = new List<VisitInfoContext>();
+                
                 foreach (var item in db.VisitsToDoctors.ToList().Where(v => patientsFiltered.Contains(v.PatientId)))
                 {
-                    patientInfoService.Add(new VisitInfoContext { VisitToDoctor = item, Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId), Patient = db.Patients.FirstOrDefault(p => p.Id == item.PatientId) });
+                    patientInfoService.Add(new VisitInfoContext
+                    {
+                        VisitToDoctor = item,
+                        Doctor = db.Doctors.FirstOrDefault(d => d.Id == item.DoctorId),
+                        Patient = db.Patients.FirstOrDefault(p => p.Id == item.PatientId)
+                    });
                 }
-                return patientInfoService;
+               
             }
+            return patientInfoService;
         }
     }
 }

@@ -12,9 +12,9 @@ namespace MedicalCardWpf.Services
     {
         public static IEnumerable<Patient> Get()
         {
+            List<Patient> patientsDatabase = new List<Patient>();
             using (MedicalCardDB db = new MedicalCardDB())
             {
-                List<Patient> patientsDatabase = new List<Patient>();
                 foreach (var item in db.Patients.ToList())
                 {
                     patientsDatabase.Add(new Patient
@@ -24,11 +24,12 @@ namespace MedicalCardWpf.Services
                         Surname = item.Surname,
                         Birthday = item.Birthday,
                         Phone = item.Phone,
-                        Adress = item.Adress
+                        Adress = item.Adress,
+                        Photo = item.Photo,
                     });
                 }
-                return patientsDatabase;
             }
+            return patientsDatabase;
         }
         public static IEnumerable<Patient> Get(string name)
         {
